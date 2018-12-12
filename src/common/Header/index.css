@@ -15,7 +15,7 @@
     background-size: 100% 100%;
 }
 .nav{
-    width: 960px;
+    width: 650px;
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -45,7 +45,63 @@
     margin-left: 20px;
     position: relative;
 }
-.navSearch i{
+.searchInfo{
+    position: absolute;
+    left: 0;
+    top: 56px;
+    width: 240px;
+    padding: 0 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    background: #fff;
+}
+.searchInfo-switch{
+    float: right;
+    font-size: 14px;
+    cursor: pointer;
+}
+.zoom{
+    float: left;
+    margin-right: 5px;
+    transition: all .2s ease-in;
+    display: block;
+    transform-origin:  center center;
+}
+.searchInfo-title{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #969696;
+}
+.searchInfoItem{
+    font-size: 12px;
+    padding: 0 5px;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    color: #969696;
+    border-radius: 2px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.searchInfoItem:link{
+    color: #969696;
+    text-decoration: none;
+}
+.searchInfoItem:visited{
+    color: #969696;
+    text-decoration: none;
+}
+.searchInfoItem:hover{
+    color: #969696;
+    text-decoration: none;
+}
+.searchInfoItem:active{
+    color: #969696;
+    text-decoration: none;
+}
+.navSearch .searchIcon{
     position: absolute;
     font-size: 16px;
     top: 15px;
@@ -87,6 +143,7 @@
     color:#fff;
     border-radius: 50%;
 }
+
 .addition{
     position:absolute;
     right: 0;
