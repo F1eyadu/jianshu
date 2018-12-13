@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-class Writer extends React.Component {
+class Writer extends React.PureComponent {
     render() {
         const { list } = this.props
         return (

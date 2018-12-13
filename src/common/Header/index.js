@@ -1,7 +1,9 @@
 import React from 'react'
 import './index.css'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getSearchFoucs, getSearchBlur, getList, mouseEnter, mouseLeave, changePage } from './store/actionCreator'
+import {loginOut} from '../../pages/login/store/actionCreator'
 // import { CSSTransition } from 'react-transition-group'
 class Header extends React.Component {
     getListArea = (show) => {
@@ -33,10 +35,10 @@ class Header extends React.Component {
         }
     }
     render() {
-        const { handleBlur, handleFocus, focused, list } = this.props
+        const { handleBlur, handleFocus, focused, list, login, loginOut } = this.props
         return (
             <div className="header">
-                <a href="/" className="logo"></a>
+                <Link to="/" className="logo"></Link>
                 <div className="nav">
                     <div className="left">
                         <div className="nav-item active">首页</div>
@@ -57,12 +59,16 @@ class Header extends React.Component {
                     </div>
                     <div className="right">
                         <div style={{ fontSize: 20 }} className="nav-item iconfont">&#xe636;</div>
-                        <div className="nav-item">登录</div>
+                        <div className="nav-item">{
+                            login ? <a onClick={loginOut}>退出</a>:<Link to="/login">登录</Link>
+                        }</div>
                     </div>
                 </div>
                 <div className="addition">
                     <button>注册</button>
-                    <button><i style={{ marginRight: 5 }} className="iconfont">&#xe670;</i>写文章</button>
+                    <Link to="/write">
+                         <button><i style={{ marginRight: 5 }} className="iconfont">&#xe670;</i>写文章</button>
+                    </Link>
                 </div>
             </div>
         )
@@ -76,7 +82,8 @@ const mapStateToProps = (state) => {
         list: state.get('header').get('list'),
         page: state.get('header').get('page'),
         mouseIn: state.get('header').get('mouseIn'),
-        totalPage: state.get('header').get('totalPage')
+        totalPage: state.get('header').get('totalPage'),
+        login: state.get('login').get('login')
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -104,6 +111,9 @@ const mapDispatchToProps = (dispatch) => {
             }else{
                 dispatch(changePage(0))
             }
+        },
+        loginOut(){
+            dispatch(loginOut())
         }
     }
 }
